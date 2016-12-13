@@ -8,12 +8,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dat_rig.sudokusolver.Sudoku">
+    tools:context="com.dat_rig.sudokusolver.SudokuGUI">
 
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="400dp">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -21,7 +21,15 @@
             android:id="@+id/sudokulayout">
 
         </GridLayout>
+
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="match_parent"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_height="100dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,23 +43,41 @@
             android:layout_height="match_parent">
 
             <Button
+                android:text="Clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/clearButton"
+                android:layout_weight="1"
+                android:onClick="clear"
+                />
+
+            <Button
+                android:text="Load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loadButton"
+                android:layout_weight="1"
+                android:onClick="load" />
+
+            <Button
                 android:text="Solve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/solveButton"
                 android:layout_weight="1"
                 android:visibility="visible"
-                android:onClick="solve (Sudoku)" />
+                android:onClick="solve" />
 
             <Button
-                android:text="Clear"
+                android:text="Check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/clearButton"
+                android:id="@+id/checkButton"
                 android:layout_weight="1"
                 android:visibility="visible"
-                android:onClick="clear (Sudoku)" />
+                android:onClick="check" />
         </LinearLayout>
+
     </FrameLayout>
 
 </GridLayout>
