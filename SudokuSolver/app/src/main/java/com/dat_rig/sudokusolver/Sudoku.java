@@ -15,13 +15,13 @@ public class Sudoku {
 	}
 
 	/**
-	 * Put kommer l�sa in ett tal p� platsen givet av row och col som har v�rdet value och placera det i board.
+	 * Put kommer läsa in ett tal på platsen givet av row och col som har värdet value och placera det i board.
 	 * @param row
-	 * Anger vilken rad som �r aktuell.
+	 * Anger vilken rad som är aktuell.
 	 * @param col
-	 * Anger vilken column som �r aktuell.
+	 * Anger vilken column som är aktuell.
 	 * @param value
-	 * Anger v�rdet som ska placeras in
+	 * Anger värdet som ska placeras in.
 	 */
 	public void put(int row, int col, int value){
 		if(row < 0 || row > 9 ||col < 0 || col > 9 || value < 0 || value > 9){
@@ -32,11 +32,11 @@ public class Sudoku {
 
 
 /**
- * RowIsOk ska unders�ka en rad och leta efter liknande nummer
+ * RowIsOk ska undersöka en rad och leta efter liknande nummer.
  * @param rowNumber
- * Anger vilket rad som unders�ks
+ * Anger vilket rad som undersöks.
  * @return
- * retunerar true och liknande tal finns annars false
+ * retunerar true och liknande tal finns annars false.
  */
 	public boolean rowIsOk(int rowNumber) {
 		boolean[] taken = new boolean[9];
@@ -52,11 +52,11 @@ public class Sudoku {
 	}
 	
 	/**
-	 * ColIsOk ska unders�ka en column och leta efter liknande nummer
+	 * ColIsOk ska undersöka en column och leta efter liknande nummer.
 	 * @param colNumber
-	 * Anger den aktuella column
+	 * Anger den aktuella kolumn.
 	 * @return
-	 * retunerar true och liknande tal finns annars false
+	 * retunerar true och liknande tal finns annars false.
 	 */
 	public boolean colIsOk(int colNumber) {
 		boolean[] taken = new boolean[9];
@@ -83,13 +83,13 @@ public class Sudoku {
 	}
 
 	/**
-	 * Unders�ker en av de 9 grupperna och ser till att de f�ljer reglerna.
+	 * Undersöker en av de 9 grupperna och ser till att de följer reglerna.
 	 * @param rowNumber
 	 * Anger radnumret till den ruta som ligger i den aktuella sektionen.
 	 * @param colNumber
 	 * Anger columnnumret till den ruta som ligger i den aktuella sektionen.
 	 * @return
-	 * Retunerar false om reglerna inte st�mmer och true annars
+	 * Retunerar false om reglerna inte stämmer och true annars
 	 */
 	public boolean sectionIsOk(int rowNumber, int colNumber) {
 		Set<Integer> taken = new HashSet<Integer>();
@@ -108,13 +108,13 @@ public class Sudoku {
 	}
 
 	/**
-	 * Ska unders�ka en ruta och se s� alla regler uppfylls f�r den
+	 * Ska undersöka en ruta och se så alla regler uppfylls för den.
 	 * @param rowNumber
-	 * Anger radnumret till den ruta som ska unders�kas.
+	 * Anger radnumret till den ruta som ska undersökas.
 	 * @param colNumber
-	 * Anger columnnumret till den ruta som ska unders�kas
+	 * Anger kolumnnumret till den ruta som ska undersökas.
 	 * @return
-	 * Retunerar true om reglerna f�ljs annars false
+	 * Retunerar true om reglerna följs annars false.
 	 */
 	public boolean numberIsOk(int rowNumber, int colNumber) {
 		if (rowIsOk(rowNumber) && colIsOk(colNumber)
@@ -125,7 +125,7 @@ public class Sudoku {
 	}
 
 	/**
-	 * Ska s�tta nollor p� alla platser p� br�det, nollst�ller det.
+	 * Ska sätta nollor på alla platser på brädet, nollställer det.
 	 */
 	public void clear() {
 		board = new int[9][9];
@@ -159,7 +159,7 @@ public class Sudoku {
 		return backtrace(nextRow(row, col), (col + 1)%9);
 	}
 
-	private int nextRow(int row, int col) { // on�dig parameter med row?
+	private int nextRow(int row, int col) {
 		if (col == 8) {
 			return (row + 1);
 		} else {
@@ -167,7 +167,7 @@ public class Sudoku {
 		}
 	}
 /**
- * Ska skriva ut hela sudokut och alla dess v�rden
+ * Ska skriva ut hela sudokut och alla dess värden
  */
 	public void printSudoku() {
 		StringBuilder sb = new StringBuilder();
@@ -181,9 +181,17 @@ public class Sudoku {
 		System.out.println(sb.toString());
 	}
 
+
+	/**
+	 *
+	 * Returnerar en string med siffran som ligger i cellen "row,col".
+	 *
+	 * @param row raden som cellen ligger på.
+	 * @param col kolumnen som cellen ligger i.
+     * @return en string med cellens värde
+     */
 	public String get(int row, int col){
 		return Integer.toString(board[row][col]);
 	}
-
 	
 }
